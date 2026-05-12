@@ -75,21 +75,6 @@ Implements training mechanics:
 
 ---
 
-## 5️⃣ Training the Model
-📁 `notebooks/Train_LLM.ipynb`
-
-Full training pipeline:
-
-- Model initialization
-- Data loading
-- Forward + backward pass
-- Loss tracking
-- Weight updates
-
-👉 **Goal:** Train a working Transformer language model.
-
----
-
 ## 6️⃣ Text Generation
 📁 `notebooks/generation.ipynb`
 
@@ -101,4 +86,18 @@ Uses the trained model to generate text:
 
 ---
 
-# 🔄 Full Training Pipeline
+## 5️⃣ Full Training Pipeline
+📁 `notebooks/Train_LLM.ipynb`
+
+Full training pipeline:
+
+- Model initialization
+- Data loading
+- Forward + backward pass
+- Loss tracking
+- Weight updates
+- Generate texts from a prompt
+
+👉 **Goal:** Train a working Transformer language model.
+
+---
