@@ -75,7 +75,7 @@ Implements training mechanics:
 
 ---
 
-## 6️⃣ Text Generation
+## 5️⃣ Text Generation
 📁 `notebooks/generation.ipynb`
 
 Uses the trained model to generate text:
@@ -86,7 +86,7 @@ Uses the trained model to generate text:
 
 ---
 
-## 5️⃣ Full Training Pipeline
+## 6️⃣ Full Training Pipeline
 📁 `notebooks/Train_LLM.ipynb`
 
 Full training pipeline:
