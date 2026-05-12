@@ -1,177 +1,104 @@
-## Transformer From Scratch in PyTorch
+# Transformer From Scratch in PyTorch
 
-This project implements a GPT-style Transformer language model from scratch using PyTorch, with a focus on clarity, educational value, and understanding how modern LLMs work internally.
+This project implements a GPT-style Transformer language model from scratch using PyTorch.  
+The focus is on **clarity, intuition, and understanding how modern LLMs work internally**, rather than using high-level libraries.
 
-The project walks through the complete pipeline of building a language model:
+The project walks through the full pipeline of building a language model — from raw text to text generation.
 
-- Transformer architecture
-- Pretokenization
-- Data loading
-- Optimization
-- Training
-- Text generation
-- Project Structure
-.
-├── transformer_architectures.ipynb
-├── pretokenize_data.ipynb
-├── dataloader.ipynb
-├── optimizer.ipynb
-├── generation.ipynb
-└── README.md
+---
 
-## Features
+# Learning Path (Recommended Order)
 
-- Transformer Components
-- Linear layer implementation
-- Token embeddings
-- Positional embeddings
-- RMSNorm
+Follow the notebooks in the exact order below to understand the full system step-by-step.
+
+---
+
+## 1️⃣ Transformer Architecture
+📁 `notebooks/transformer_architectures.ipynb`
+
+Implements the core building blocks of a Transformer:
+
+- Linear layers
+- Token + positional embeddings
+- RMS normalization
 - SiLU activation
-- Self-attention
+- Self-attention mechanism
 - Multi-head attention
-- KV-cache
-- Feed-forward MLP
-- Transformer blocks
-- Causal masking
-- Training Components
-- Cross entropy loss
-- Adam optimizer
-- Gradient-based optimization
-- Data loading pipeline
-- Tokenization
-- Educational BPE tokenizer implementation
-- GPT-2 tokenizer via tiktoken
-- Pretokenized binary datasets
-- Inference
-- Autoregressive generation
-- Temperature sampling
-- KV-cache decoding
+- KV-cache (for fast autoregressive inference)
+- Feed-forward network (MLP)
+- Transformer block
+- Full LLM assembly
 
-## Requirements
+👉 **Goal:** Understand how a GPT-style model is built internally.
 
-Install dependencies:
+---
 
-pip install torch numpy matplotlib tiktoken huggingface_hub
+## 2️⃣ Tokenization / Pretokenization
+📁 `notebooks/pretokenize_data.ipynb`
 
-Step-by-Step Workflow
+Converts raw text into token IDs:
 
-1. Build the Transformer Architecture
+- Byte Pair Encoding (BPE) (educational implementation)
+- GPT-2 tokenizer (`tiktoken`)
+- Token vocabulary creation
+- Conversion of text → token sequences
+- Saving tokenized dataset as `.bin` files
 
-Open:
+👉 **Goal:** Transform raw text into model-ready numerical data.
 
-transformer_architectures.ipynb
+---
 
-This notebook implements:
+## 3️⃣ Data Loading
+📁 `notebooks/dataloader.ipynb`
 
-attention
-MLP
-transformer blocks
-RMSNorm
-KV-cache
-full LLM architecture
+Prepares data for training:
 
-Goal:
-Understand how Transformer models are built internally.
+- Loads pretokenized binary files
+- Creates input–target pairs `(X, Y)`
+- Batching sequences for training
+- Efficient memory handling
 
-2. Pretokenize the Dataset
+👉 **Goal:** Feed structured training data into the model.
 
-Open:
+---
 
-pretokenize_data.ipynb
+## 4️⃣ Optimization
+📁 `notebooks/optimizer.ipynb`
 
-This notebook:
+Implements training mechanics:
 
-downloads TinyStories
-loads the GPT-2 tokenizer
-converts text into token IDs
-writes tokens into binary .bin files
+- Loss function (cross-entropy)
+- Gradient descent intuition
+- SGD vs Adam optimizer
 
-Example:
+👉 **Goal:** Understand how neural networks actually learn.
 
-tokenizer = tiktoken.get_encoding("gpt2")
+---
 
-Goal:
-Prepare training data efficiently before training.
+## 5️⃣ Training the Model
+📁 `notebooks/Train_LLM.ipynb`
 
-3. Load Training Data
+Full training pipeline:
 
-Open:
+- Model initialization
+- Data loading
+- Forward + backward pass
+- Loss tracking
+- Weight updates
 
-dataloader.ipynb
+👉 **Goal:** Train a working Transformer language model.
 
-This notebook:
+---
 
-loads tokenized .bin files
-creates batches
-constructs (X, Y) token prediction pairs
+## 6️⃣ Text Generation
+📁 `notebooks/generation.ipynb`
 
-Where:
+Uses the trained model to generate text:
 
-X = input tokens
-Y = next-token targets
+- Prompt → generated output
 
-Goal:
-Feed training sequences into the Transformer.
+👉 **Goal:** Generate coherent text using the trained model.
 
-4. Optimization and Training
+---
 
-Open:
-
-optimizer.ipynb
-
-This notebook:
-
-implements SGD and Adam
-explains gradient descent
-trains the Transformer model
-computes cross entropy loss
-
-Goal:
-Learn how neural networks optimize parameters during training.
-
-5. Generate Text
-
-Open:
-
-generation.ipynb
-
-This notebook:
-
-loads the trained model
-generates text autoregressively
-uses temperature sampling
-demonstrates KV-cache inference
-
-Goal:
-Use the trained Transformer as a language model.
-
-## Training Pipeline
-
-Raw Text
-   ↓
-GPT-2 Tokenizer (tiktoken)
-   ↓
-Pretokenized Binary Files (.bin)
-   ↓
-DataLoader
-   ↓
-Transformer LLM
-   ↓
-Training
-   ↓
-Text Generation
-
-## Goal
-This project is designed to help understand:
-
-how tokenization works
-how attention works
-how transformers process sequences
-how language models train
-how autoregressive generation works
-why Adam optimization is commonly used
-
-## Requirements
-
-- Python 3.8+
-- PyTorch
+# 🔄 Full Training Pipeline
