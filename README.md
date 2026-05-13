@@ -1,5 +1,9 @@
 # Transformer From Scratch in PyTorch
 
+<p align="center">
+  <img src="images/image.png" width="400">
+</p>
+
 This project implements a GPT-style Transformer language model from scratch using PyTorch.  
 The focus is on **clarity, intuition, and understanding how modern LLMs work internally**, rather than using high-level libraries.
 
