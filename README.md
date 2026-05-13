@@ -1,7 +1,7 @@
 # Transformer From Scratch in PyTorch
 
 <p align="center">
-  <img src="images/image.png" width="400">
+  <img src="image/image.png" width="400">
 </p>
 
 This project implements a GPT-style Transformer language model from scratch using PyTorch.  
